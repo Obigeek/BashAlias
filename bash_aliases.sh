@@ -14,7 +14,7 @@
 alias fuck='eval $(thefuck $(fc -ln -1)); history -r'
 
 # LS Colours
-# Color Library by trapd00r (Github > trapdoor/LS_COLORS)
+# Color Library by trapd00r (Github > trapd00r/LS_COLORS)
 if [ -f ~/.dircolors ]; then
   eval $(dircolors -b $HOME/.dircolors)
 fi
@@ -108,12 +108,11 @@ function cs {
 }
 alias cd='cs'
 
-# MKDIR CS LS
+# MKDIR CD
 function mkcd {
   mkdir -pv "$@"
   cd "$1"
   clear
-  ls
 }
 
 # System Info
@@ -183,10 +182,9 @@ fi
 md5check() { md5sum "$1" | grep "$2";}
 
 # Permalias
-function permalias ()
-{
-  alias "$*";
-  echo alias "$*" >> ~/.bash_aliases
+permalias() {
+    echo "alias ${1}=\"${2}\"" >> ~/.bash_aliases
+    source .bash_aliases
 }
 
 # -----//----- Additional Aliases -----//-----
